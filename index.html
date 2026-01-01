@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriBot - AI Powered Health & Nutrition HTML Template</title>
+    
+    <!-- CDN Assets -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': '#1A3C34',
+                        'mint': '#E7F2EE',
+                        'cream': '#F9FBF9',
+                        'soft-gold': '#F4B400',
+                    },
+                    borderRadius: { '4xl': '2rem', '5xl': '3rem' }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .glass-card { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .swiper-pagination-bullet-active { background: #1A3C34 !important; }
+        #mobile-sidebar { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    </style>
+</head>
+<body class="text-slate-900 bg-white overflow-x-hidden">
+
+    <!-- Sidebar Overlay -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/60 z-[60] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm"></div>
+
+    <!-- Sidebar Mobile -->
+    <aside id="mobile-sidebar" class="fixed top-0 left-0 h-full w-[300px] bg-white z-[70] shadow-2xl -translate-x-full p-10 flex flex-col">
+        <div class="flex justify-between items-center mb-12">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-forest rounded-lg flex items-center justify-center text-white">
+                    <i data-lucide="leaf" class="w-5 h-5"></i>
+                </div>
+                <span class="font-extrabold text-xl">NutriBot</span>
+            </div>
+            <button id="close-sidebar" class="p-2 hover:bg-slate-100 rounded-full transition">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col gap-8 font-bold text-lg">
+            <a href="#beranda" class="text-forest">Beranda</a>
+            <a href="#fitur" class="text-slate-400 hover:text-forest transition">Fitur AI</a>
+            <a href="#prosedur" class="text-slate-400 hover:text-forest transition">Cara Kerja</a>
+            <a href="#harga" class="text-slate-400 hover:text-forest transition">Harga</a>
+        </nav>
+        <div class="mt-auto">
+            <button class="w-full bg-forest text-white py-4 rounded-2xl font-bold text-sm shadow-xl shadow-forest/20">Mulai Gratis</button>
+        </div>
+    </aside>
+
+    <!-- Header / Navbar -->
+    <nav id="main-nav" class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur-lg z-50 transition-all duration-300">
+        <div class="flex items-center gap-12">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-9 h-9 bg-forest rounded-xl flex items-center justify-center text-white group-hover:rotate-12 transition">
+                    <i data-lucide="leaf" class="w-5 h-5"></i>
+                </div>
+                <span class="font-extrabold text-xl tracking-tight">NutriBot</span>
+            </a>
+            <div class="hidden lg:flex gap-10 text-sm font-bold text-slate-500">
+                <a href="#beranda" class="hover:text-forest transition">Beranda</a>
+                <a href="#fitur" class="hover:text-forest transition">Fitur AI</a>
+                <a href="#prosedur" class="hover:text-forest transition">Cara Kerja</a>
+                <a href="#harga" class="hover:text-forest transition">Harga</a>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="hidden md:block bg-forest text-white px-7 py-2.5 rounded-full text-sm font-bold hover:shadow-2xl hover:-translate-y-0.5 transition active:translate-y-0">Mulai Sekarang</button>
+            <button id="open-sidebar" class="lg:hidden p-2.5 bg-slate-50 rounded-xl hover:bg-mint transition">
+                <i data-lucide="menu" class="w-6 h-6 text-forest"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="max-w-7xl mx-auto px-6 pt-12 pb-24 lg:pt-24 grid lg:grid-cols-2 gap-20 items-center">
+        <div class="reveal">
+            <div class="inline-flex items-center gap-2 py-2 px-5 bg-mint text-forest font-bold text-[10px] tracking-[0.2em] uppercase rounded-full mb-8">
+                <i data-lucide="zap" class="w-3.5 h-3.5 fill-current"></i> Teknologi AI Terkini
+            </div>
+            <h1 class="text-5xl lg:text-[5.5rem] font-extrabold leading-[1.05] tracking-tighter mb-8">
+                Transformasi <span class="text-forest italic underline decoration-mint decoration-8 underline-offset-8">Kesehatan</span> Lewat Percakapan.
+            </h1>
+            <p class="text-slate-500 text-lg lg:text-xl max-w-lg leading-relaxed mb-10">
+                Lupakan input data manual yang membosankan. Chat, foto, dan biarkan AI kami mengelola nutrisi Anda secara otomatis.
+            </p>
+
+            <div class="relative max-w-md shadow-2xl shadow-forest/10 group mb-12">
+                <input type="text" placeholder="Berapa kalori 1 porsi sate ayam?" class="w-full bg-white border-2 border-slate-50 rounded-3xl py-5 pl-8 pr-16 focus:outline-none focus:border-forest/30 focus:ring-4 focus:ring-forest/5 transition-all text-sm font-medium">
+                <button class="absolute right-3.5 top-3.5 bg-forest text-white p-3 rounded-2xl hover:scale-105 transition active:scale-95 shadow-lg shadow-forest/20">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <div class="flex -space-x-4">
+                    <img src="https://i.pravatar.cc/100?img=1" class="w-12 h-12 rounded-full border-4 border-white">
+                    <img src="https://i.pravatar.cc/100?img=2" class="w-12 h-12 rounded-full border-4 border-white">
+                    <img src="https://i.pravatar.cc/100?img=3" class="w-12 h-12 rounded-full border-4 border-white">
+                </div>
+                <div>
+                    <p class="text-sm font-bold">10k+ Pengguna Aktif</p>
+                    <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest">Bergabunglah Sekarang</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative reveal delay-200">
+            <div class="rounded-[4rem] overflow-hidden aspect-[4/5] bg-mint shadow-2xl relative group">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2070&auto=format&fit=crop" class="object-cover w-full h-full transition duration-1000 group-hover:scale-110" alt="Healthy Lifestyle">
+                
+                <!-- Floating Components -->
+                <div class="absolute top-10 right-10 glass-card p-6 rounded-[2.5rem] shadow-2xl w-48 animate-float">
+                    <div class="w-10 h-10 bg-forest text-white rounded-2xl flex items-center justify-center mb-4">
+                        <i data-lucide="activity" class="w-5 h-5"></i>
+                    </div>
+                    <p class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Total Kalori</p>
+                    <p class="text-2xl font-black text-forest">1,420 <span class="text-xs font-bold text-slate-400 uppercase">kcal</span></p>
+                </div>
+
+                <div class="absolute bottom-10 left-10 right-10 glass-card p-6 rounded-[3rem] border border-white/40">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-white font-bold text-sm">Update Real-time</span>
+                        <span class="px-2 py-1 bg-emerald-400 text-[8px] font-bold text-white rounded-md uppercase">Aktif</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <div class="h-1.5 flex-1 bg-white/20 rounded-full overflow-hidden">
+                            <div class="h-full w-4/5 bg-white"></div>
+                        </div>
+                        <div class="h-1.5 flex-1 bg-white/20 rounded-full overflow-hidden">
+                            <div class="h-full w-2/5 bg-white"></div>
+                        </div>
+                        <div class="h-1.5 flex-1 bg-white/20 rounded-full overflow-hidden">
+                            <div class="h-full w-3/5 bg-white"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners / Trust Section -->
+    <section class="max-w-7xl mx-auto px-6 py-12 border-y border-slate-50 overflow-hidden">
+        <p class="text-center text-slate-300 font-bold text-[10px] uppercase tracking-[0.3em] mb-10 text-reveal">Partner Strategis & Publikasi</p>
+        <div class="flex flex-wrap justify-center gap-12 lg:gap-24 opacity-30 grayscale hover:grayscale-0 transition duration-500">
+            <span class="text-2xl font-black tracking-tighter italic">HEALTHLINE</span>
+            <span class="text-2xl font-black tracking-tighter italic">FORBES</span>
+            <span class="text-2xl font-black tracking-tighter italic">WIRED</span>
+            <span class="text-2xl font-black tracking-tighter italic">TECHCRUNCH</span>
+            <span class="text-2xl font-black tracking-tighter italic">CNN</span>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="prosedur" class="max-w-7xl mx-auto px-6 py-32">
+        <div class="text-center max-w-2xl mx-auto mb-24 reveal">
+            <p class="text-forest font-black text-[10px] uppercase tracking-[0.4em] mb-5">Prosedur Kami</p>
+            <h2 class="text-4xl lg:text-6xl font-extrabold tracking-tight mb-8">Cara Kerja NutriBot.</h2>
+            <p class="text-slate-500 text-lg">Hanya butuh 3 langkah sederhana untuk mentransformasi cara Anda mengelola kesehatan harian.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-16 relative">
+            <!-- Connector Line -->
+            <div class="hidden md:block absolute top-16 left-0 w-full h-0.5 bg-slate-50 z-0"></div>
+
+            <!-- Step 1 -->
+            <div class="relative z-10 text-center reveal">
+                <div class="w-16 h-16 bg-white border-4 border-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl text-forest font-black text-2xl">01</div>
+                <h4 class="text-xl font-extrabold mb-4">Hubungkan Akun</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">Daftar dengan cepat menggunakan email atau media sosial Anda untuk mulai.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="relative z-10 text-center reveal delay-200">
+                <div class="w-16 h-16 bg-forest rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-2xl text-white font-black text-2xl">02</div>
+                <h4 class="text-xl font-extrabold mb-4">Kirim Foto / Chat</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">Cukup kirim foto makanan Anda atau ketik apa yang Anda makan hari ini.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="relative z-10 text-center reveal delay-400">
+                <div class="w-16 h-16 bg-white border-4 border-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl text-forest font-black text-2xl">03</div>
+                <h4 class="text-xl font-extrabold mb-4">Dapatkan Analisis</h4>
+                <p class="text-slate-500 text-sm leading-relaxed">AI akan menghitung nutrisi secara instan dan memberikan saran kesehatan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Bento Grid -->
+    <section id="fitur" class="max-w-7xl mx-auto px-6 py-24 bg-cream lg:rounded-[5xl]">
+        <div class="grid lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-8 bg-forest p-10 lg:p-16 rounded-[4rem] text-white relative overflow-hidden reveal">
+                <div class="relative z-10 h-full flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-10">
+                            <i data-lucide="camera" class="w-7 h-7 text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-3xl lg:text-5xl font-extrabold mb-6 leading-tight max-w-lg tracking-tight">Kenali Makanan Anda <br>Melalui Lensa Kamera.</h3>
+                        <p class="text-white/60 max-w-md leading-relaxed">Teknologi visi komputer kami dapat membedakan antara dada ayam panggang dan ayam goreng dalam sekejap.</p>
+                    </div>
+                    <div class="mt-16 flex items-center gap-4">
+                        <button class="bg-white text-forest px-8 py-3.5 rounded-2xl font-bold text-sm hover:bg-emerald-400 hover:text-white transition shadow-xl shadow-black/20">Coba Demo Foto</button>
+                    </div>
+                </div>
+                <!-- Abstract Design -->
+                <div class="absolute -right-20 top-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="lg:col-span-4 bg-white p-10 rounded-[4rem] border border-slate-100 shadow-sm reveal delay-200">
+                <div class="w-14 h-14 bg-mint rounded-2xl flex items-center justify-center mb-10">
+                    <i data-lucide="shield-check" class="w-7 h-7 text-forest"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold mb-6 leading-tight">Data Aman & Terenkripsi.</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-10">Kami menjaga privasi kesehatan Anda dengan standar keamanan perbankan tertinggi.</p>
+                <div class="p-6 bg-slate-50 rounded-3xl border border-slate-100">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <span class="text-[10px] font-black uppercase text-slate-400">Sistem Proteksi Aktif</span>
+                    </div>
+                    <div class="h-2 bg-slate-200 rounded-full w-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="harga" class="max-w-7xl mx-auto px-6 py-32">
+        <div class="text-center mb-20 reveal">
+            <h2 class="text-4xl lg:text-6xl font-extrabold tracking-tight mb-8">Pilih Paket Sehat Anda.</h2>
+            <p class="text-slate-500">Mulai gratis, tingkatkan saat Anda siap untuk transformasi total.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 items-center">
+            <!-- Starter -->
+            <div class="p-10 rounded-[3rem] border border-slate-100 hover:shadow-2xl transition duration-500 reveal">
+                <h4 class="font-bold text-lg mb-2">Gratis</h4>
+                <div class="flex items-end gap-1 mb-8">
+                    <span class="text-4xl font-black">Rp 0</span>
+                    <span class="text-slate-400 text-sm pb-1">/ selamanya</span>
+                </div>
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-center gap-3 text-sm text-slate-500"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 10 Chat AI per hari</li>
+                    <li class="flex items-center gap-3 text-sm text-slate-500"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Lacak Kalori Dasar</li>
+                    <li class="flex items-center gap-3 text-sm text-slate-300"><i data-lucide="x" class="w-4 h-4"></i> Konsultasi Expert</li>
+                </ul>
+                <button class="w-full py-4 border-2 border-slate-100 rounded-2xl font-bold text-sm hover:bg-slate-50 transition">Daftar Sekarang</button>
+            </div>
+
+            <!-- Pro (Featured) -->
+            <div class="p-10 rounded-[3rem] bg-forest text-white shadow-2xl scale-105 relative reveal delay-200">
+                <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-soft-gold text-forest text-[10px] font-black uppercase tracking-widest px-6 py-2 rounded-full">Paling Populer</div>
+                <h4 class="font-bold text-lg mb-2 opacity-80">Pro Plan</h4>
+                <div class="flex items-end gap-1 mb-8">
+                    <span class="text-4xl font-black">Rp 49k</span>
+                    <span class="text-white/50 text-sm pb-1">/ bulan</span>
+                </div>
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Unlimited AI Chat</li>
+                    <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Deteksi Foto Tak Terbatas</li>
+                    <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Custom Diet Plan</li>
+                    <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-400"></i> Export Laporan Mingguan</li>
+                </ul>
+                <button class="w-full py-4 bg-white text-forest rounded-2xl font-bold text-sm hover:bg-emerald-400 hover:text-white transition shadow-xl shadow-black/20">Mulai Trial Gratis</button>
+            </div>
+
+            <!-- Team -->
+            <div class="p-10 rounded-[3rem] border border-slate-100 hover:shadow-2xl transition duration-500 reveal delay-400">
+                <h4 class="font-bold text-lg mb-2">Family</h4>
+                <div class="flex items-end gap-1 mb-8">
+                    <span class="text-4xl font-black">Rp 129k</span>
+                    <span class="text-slate-400 text-sm pb-1">/ bulan</span>
+                </div>
+                <ul class="space-y-4 mb-10">
+                    <li class="flex items-center gap-3 text-sm text-slate-500"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Hingga 5 Akun</li>
+                    <li class="flex items-center gap-3 text-sm text-slate-500"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Dashboard Orang Tua</li>
+                    <li class="flex items-center gap-3 text-sm text-slate-500"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Konsultasi Prioritas</li>
+                </ul>
+                <button class="w-full py-4 border-2 border-slate-100 rounded-2xl font-bold text-sm hover:bg-slate-50 transition">Pilih Paket</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Slider (Swiper) -->
+    <section class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-50 reveal">
+        <div class="swiper testimonial-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide h-auto">
+                    <div class="bg-mint p-12 rounded-[3.5rem] h-full">
+                        <i data-lucide="quote" class="w-12 h-12 text-forest/20 mb-8"></i>
+                        <p class="text-2xl font-medium text-forest mb-12 leading-relaxed italic">"NutriBot adalah game changer. Saya turun 8kg tanpa merasa seperti sedang berdiet ketat."</p>
+       
